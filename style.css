@@ -24,6 +24,7 @@ background: #091921;
   font-family:"Space Grotesk", sans-serif;
   color:#fafaff;
   margin-top: 50px;
+  transition: width 2s, height 2s, background-color 2s, transform 2s
 }
 
 .clock
