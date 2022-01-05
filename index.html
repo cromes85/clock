@@ -27,21 +27,38 @@
     </div>
 
 <p id="date-fr"></p>
+<p id="date-ndls"></p>
 
 
 <!-- Script Date et Année -->
 <script type="text/Javascript">
 
 const date = new Date();
+
+// Date FR
 const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"];
 const days = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
 
 let month = months[date.getMonth()];
+
 let day = days[date.getDay()-1];
+
 let number = date.getDate();
+
 let year = date.getFullYear();
 
 document.getElementById("date-fr").innerHTML = day + " " + number +" "+ month + " " + year;
+
+// Date NDLS
+
+const months_ndls = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
+const days_ndls = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"];
+
+let month_ndls = months_ndls[date.getMonth()];
+
+let day_ndls = days_ndls[date.getDay()-1];
+
+document.getElementById("date-ndls").innerHTML = day_ndls + " " + number +" "+ month_ndls + " " + year;
 </script>
 
 <!-- Script Horloge -->
