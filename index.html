@@ -31,16 +31,16 @@
 
 <!-- Script Date et Année -->
 <script type="text/Javascript">
+
+const date = new Date();
 const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"];
-const m = new Date();
-let month = months[m.getMonth()];
 const days = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
-const d = new Date();
-let day = days[d.getDay()-1];
-const n = new Date();
-let number = n.getDate();
-const y = new Date();
-let year = y.getFullYear();
+
+let month = months[date.getMonth()];
+let day = days[date.getDay()-1];
+let number = date.getDate();
+let year = date.getFullYear();
+
 document.getElementById("date-fr").innerHTML = day + " " + number +" "+ month + " " + year;
 </script>
 
