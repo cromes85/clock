@@ -18,14 +18,21 @@ background: #091921;
 
 
 
-#date-fr {
+#date-fr{
   font-size:32px;
   letter-spacing:1px;
   font-family:"Space Grotesk", sans-serif;
-  color:#fafaff;
+  color:#ffffff;
   margin-top: 50px;
-  transition: width 2s, height 2s, background-color 2s, transform 2s
 }
+
+#date-ndls {
+    font-size:32px;
+    letter-spacing:1px;
+    font-family:"Space Grotesk", sans-serif;
+    color:#ffffff;
+    margin-top: 25px;
+  }
 
 .clock
 {
