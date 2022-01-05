@@ -19,6 +19,10 @@ background: #091921;
 
 
 /* #date-fr */
+
+.txt-type {
+  height:10px;
+}
 .txt {
   font-size:32px;
   letter-spacing:1px;
