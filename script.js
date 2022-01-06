@@ -51,79 +51,119 @@ mn.style.transform = `rotateZ(${mm}deg)`;
 sc.style.transform = `rotateZ(${ss}deg)`;
 })
 
-// Test script typing
+// // Test script typing change for the flip effect
 
-// ES6 Class
-class TypeWriter {
-    constructor(txtElement, words, wait = 3000) {
-      this.txtElement = txtElement;
-      this.words = words;
-      this.txt = '';
-      this.wordIndex = 0;
-      this.wait = parseInt(wait, 10);
-      this.type();
-      this.isDeleting = false;
-    }
+// // ES6 Class
+// class TypeWriter {
+//     constructor(txtElement, words, wait = 3000) {
+//       this.txtElement = txtElement;
+//       this.words = words;
+//       this.txt = '';
+//       this.wordIndex = 0;
+//       this.wait = parseInt(wait, 10);
+//       this.type();
+//       this.isDeleting = false;
+//     }
   
-    type() {
-      // Current index of word
-      const current = this.wordIndex % this.words.length;
-      // Get full text of current word
-      const fullTxt = this.words[current];
+//     type() {
+//       // Current index of word
+//       const current = this.wordIndex % this.words.length;
+//       // Get full text of current word
+//       const fullTxt = this.words[current];
   
-      // Check if deleting
-      if(this.isDeleting) {
-        // Remove char
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
-        // Add char
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
+//       // Check if deleting
+//       if(this.isDeleting) {
+//         // Remove char
+//         this.txt = fullTxt.substring(0, this.txt.length - 1);
+//       } else {
+//         // Add char
+//         this.txt = fullTxt.substring(0, this.txt.length + 1);
+//       }
   
-      // Insert txt into element
-      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+//       // Insert txt into element
+//       this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
   
-      // Initial Type Speed
-      let typeSpeed = 100;
+//       // Initial Type Speed
+//       let typeSpeed = 100;
   
-      if(this.isDeleting) {
-        typeSpeed /= 4;
-      }
+//       if(this.isDeleting) {
+//         typeSpeed /= 4;
+//       }
   
-      // If word is complete
-      if(!this.isDeleting && this.txt === fullTxt) {
-        // Make pause at end
-        typeSpeed = this.wait;
-        // Set delete to true
-        this.isDeleting = true;
-      } else if(this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        // Move to next word
-        this.wordIndex++;
-        // Pause before start typing
-        typeSpeed = 400;
-      }
+//       // If word is complete
+//       if(!this.isDeleting && this.txt === fullTxt) {
+//         // Make pause at end
+//         typeSpeed = this.wait;
+//         // Set delete to true
+//         this.isDeleting = true;
+//       } else if(this.isDeleting && this.txt === '') {
+//         this.isDeleting = false;
+//         // Move to next word
+//         this.wordIndex++;
+//         // Pause before start typing
+//         typeSpeed = 400;
+//       }
   
-      setTimeout(() => this.type(), typeSpeed);
-    }
-  }
+//       setTimeout(() => this.type(), typeSpeed);
+//     }
+//   }
   
   
-  // Init On DOM Load
-  document.addEventListener('DOMContentLoaded', init);
+//   // Init On DOM Load
+//   document.addEventListener('DOMContentLoaded', init);
   
-  // Init App
-  function init() {
+//   // Init App
+//   function init() {
+//     const eng_date = day_eng + " " + number + " " + month_eng + " " + year;
+//     const ndls_date = day_ndls + " " + number + " " + month_ndls + " " + year;
+//     const fr_date = day + " " + number + " " + month + " " + year;
+//     const txtElement = document.querySelector('.txt-type');
+//     const words = [fr_date, eng_date, ndls_date];
+//     //const words = JSON.parse(txtElement.getAttribute('data-words'));
+//     const wait = txtElement.getAttribute('data-wait');
+//     // Init TypeWriter
+//     new TypeWriter(txtElement, words, wait);
+//   }
+
+
+
+  // Test script Flip
+
+  (function() {
     const eng_date = day_eng + " " + number + " " + month_eng + " " + year;
     const ndls_date = day_ndls + " " + number + " " + month_ndls + " " + year;
     const fr_date = day + " " + number + " " + month + " " + year;
-    const txtElement = document.querySelector('.txt-type');
-    const words = [fr_date, eng_date, ndls_date];
-    //const words = JSON.parse(txtElement.getAttribute('data-words'));
-    const wait = txtElement.getAttribute('data-wait');
-    // Init TypeWriter
-    new TypeWriter(txtElement, words, wait);
-  }
+    var word = [fr_date, eng_date, ndls_date];
+    var element = document.getElementsByTagName('p')[0];
+    var wordIndex = 1;
 
+    var resetAnimation = function() {
+      element.classList.remove('flip');
+    }
 
-  
+    setInterval(function(){
+        switch (wordIndex) {
+          case 0:
+            element.classList.add('flip');
+            element.textContent = word[wordIndex];
+            wordIndex = 1;
+            setTimeout(resetAnimation, 1000);
+          break;
+
+          case 1:
+            element.classList.add('flip');
+            element.textContent = word[wordIndex];
+            wordIndex = 2;
+            setTimeout(resetAnimation, 1000);
+          break;
+
+          case 2:
+            element.classList.add('flip');
+            element.textContent = word[wordIndex];
+            wordIndex = 0;
+            setTimeout(resetAnimation, 1000);
+          break;
+        }
+    },2000)
+}());
+
