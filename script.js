@@ -84,7 +84,7 @@ class TypeWriter {
       this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
   
       // Initial Type Speed
-      let typeSpeed = 200;
+      let typeSpeed = 100;
   
       if(this.isDeleting) {
         typeSpeed /= 4;
@@ -101,7 +101,7 @@ class TypeWriter {
         // Move to next word
         this.wordIndex++;
         // Pause before start typing
-        typeSpeed = 500;
+        typeSpeed = 400;
       }
   
       setTimeout(() => this.type(), typeSpeed);
@@ -118,9 +118,12 @@ class TypeWriter {
     const ndls_date = day_ndls + " " + number + " " + month_ndls + " " + year;
     const fr_date = day + " " + number + " " + month + " " + year;
     const txtElement = document.querySelector('.txt-type');
-    const words = [eng_date, ndls_date, fr_date];
+    const words = [fr_date, eng_date, ndls_date];
     //const words = JSON.parse(txtElement.getAttribute('data-words'));
     const wait = txtElement.getAttribute('data-wait');
     // Init TypeWriter
     new TypeWriter(txtElement, words, wait);
   }
+
+
+  
