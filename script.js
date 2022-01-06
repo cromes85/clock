@@ -164,6 +164,6 @@ sc.style.transform = `rotateZ(${ss}deg)`;
             setTimeout(resetAnimation, 1000);
           break;
         }
-    },2000)
+    },4000)
 }());
 
